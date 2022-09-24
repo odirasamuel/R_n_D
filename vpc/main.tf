@@ -21,42 +21,15 @@ module "vpc" {
   create_redshift_subnet_group    = false
   create_vpc                      = true
   database_subnet_group_name      = "rnd-db-sg-${terraform.workspace}"
-  database_subnet_group_tags = {
-    Environment = terraform.workspace
-  }
-  database_subnet_tags = {
-    Environment = terraform.workspace
-  }
-  default_network_acl_name = "rnd-nacl-${terraform.workspace}"
-  default_network_acl_tags = {
-    Environment = terraform.workspace
-  }
-  default_route_table_name = "rnd-rt-${terraform.workspace}"
-  default_route_table_tags = {
-    Environment = terraform.workspace
-  }
-  default_security_group_name = ""
-  default_security_group_tags = {
-    Environment = terraform.workspace
-  }
-  default_vpc_name = "Default-VPC-${terraform.workspace}"
-  igw_tags = {
-    Environment = terraform.workspace
-  }
-  name = "rnd-vpc-${terraform.workspace}"
-  private_subnet_tags = {
-    Environment = terraform.workspace
-  }
-  public_acl_tags = {
-    Environment = terraform.workspace
-  }
-  public_route_table_tags = {
-    Environment = terraform.workspace
-  }
-  public_subnet_tags = {
-    Environment = terraform.workspace
-  }
-  vpc_tags = {
-    Environment = terraform.workspace
+  default_network_acl_name        = "rnd-nacl-${terraform.workspace}"
+  default_route_table_name        = "rnd-rt-${terraform.workspace}"
+  default_security_group_name     = "default-sg-${terraform.workspace}"
+  default_vpc_name                = "Default-VPC-${terraform.workspace}"
+  name                            = "rnd-vpc-${terraform.workspace}"
+  enable_dns_hostnames            = true
+  enable_dns_support              = true
+
+  tags = {
+    "Environment" = terraform.workspace
   }
 }
