@@ -6,13 +6,9 @@ terraform {
   backend "s3" {
     bucket         = "odi-tf-state-bucket"
     dynamodb_table = "odi-tf-state-lock"
-    key            = "odi-tf-state"
+    key            = "odi-tf-state/general"
     encrypt        = true
     profile        = "odira"
     region         = "us-east-2"
   }
-}
-provider "aws" {
-  region  = "us-east-2"
-  profile = "odira"
 }
